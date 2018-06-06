@@ -1,0 +1,186 @@
+﻿@model Sampe.Models.OrdemProducaoKit
+@{
+    ViewBag.Title = "Create";
+	var clientes = ViewBag.Clientes;
+}
+
+<script>
+    $(document).ready(function () {
+		$("#add").click(function () {			
+			$("#esp").append('<tr ><td> @Html.EditorFor(model => model.Especificacao.TipoKit, new { htmlAttributes = new { @class = "form-control" } })</td><td>@Html.EditorFor(model => model.Especificacao.CorKit, new { htmlAttributes = new { @class = "form-control" } }) </td><td> @Html.EditorFor(model => model.Especificacao.Parafuso) </td><td>@Html.EditorFor(model => model.Especificacao.QuantProduzido, new { htmlAttributes = new { @class = "form-control" } })</td><td> <select class="form-control" id="ClienteId" name="ClienteId">@foreach(var x in clientes){<option value="@x.ClienteId">@x.NomeCliente</option>}</select>  </td><td> </td></tr>');
+		});
+
+        $("#esp").on('dblclick ','a', function () {
+            $(this).remove();
+        });
+
+        $("#adc").click(function () {
+            $("#pausa").append('<tr><td> @Html.EditorFor(model => model.ParadaKit.HoraParada, new { htmlAttributes = new { type = "time", @class = "form-control" } }) </td><td> @Html.EditorFor(model => model.ParadaKit.HoraRetorno, new { htmlAttributes = new { type = "time", @class = "form-control" } }) </td><td> @Html.EditorFor(model => model.ParadaKit.Motivo, new { htmlAttributes = new { @class = "form-control" } }) </td><td> @Html.EditorFor(model => model.ParadaKit.Observacoes, new { htmlAttributes = new { @class = "form-control" } }) </td><td></td></tr>');
+        });
+
+        $("#pausa").on('dblclick ', 'tr', function () {
+            $(this).remove();
+        });
+    });
+</script>
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h4>OrdemProducaoKit</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Data, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Data, new { htmlAttributes = new { type = "date", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Data, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <label>Anel</label>
+                @Html.DropDownList("Anel", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-4">
+                <label>Chapeu</label>
+                @Html.DropDownList("Chapeu", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="col-lg-4">
+                <label>Capa</label>
+                @Html.DropDownList("Capa", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProdIncio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProdIncio, new { htmlAttributes = new { type="time",@class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProdIncio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProdFim, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProdFim, new { htmlAttributes = new { type = "time", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProdFim, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.NivelamentoBalanca, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.NivelamentoBalanca)
+                    @Html.ValidationMessageFor(model => model.NivelamentoBalanca, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Obs, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Obs, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Obs, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Operador</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Operdor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Operdor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Tipo de Kit</th>
+                        <th>Cor</th>
+                        <th>Parafuso</th>
+                        <th>Quantidade Produzida</th>
+                        <th>Cliente</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="esp">
+                    <tr>
+                        <td>
+                            @Html.EditorFor(model => model.Especificacao.TipoKit, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Especificacao.TipoKit, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.Especificacao.CorKit, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Especificacao.CorKit, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.Especificacao.Parafuso)
+                            @Html.ValidationMessageFor(model => model.Especificacao.Parafuso, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.Especificacao.QuantProduzido, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Especificacao.QuantProduzido, "", new { @class = "text-danger" })
+                        </td>
+						<td>
+							<select class="form-control" id="ClienteId" name="ClienteId">
+								@foreach(var x in clientes)
+								{
+								<option value="@x.ClienteId">@x.NomeCliente</option>
+								}							
+							</select>
+						</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a class="btn btn-default btn-sm" id="add"><span class="glyphicon glyphicon-plus"></span></a>
+        </div>
+        <div class="row">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Hora Inicio</th>
+                        <th>Hora Retorno</th>
+                        <th>Motivo</th>
+                        <th>Observações</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="pausa">
+                    <tr>
+                        <td>
+                            @Html.EditorFor(model => model.ParadaKit.HoraParada, new { htmlAttributes = new { type = "time", @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ParadaKit.HoraParada, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.ParadaKit.HoraRetorno, new { htmlAttributes = new { type = "time", @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ParadaKit.HoraRetorno, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.ParadaKit.Motivo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ParadaKit.Motivo, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            @Html.EditorFor(model => model.ParadaKit.Observacoes, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ParadaKit.Observacoes, "", new { @class = "text-danger" })
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a class="btn btn-default btn-sm" id="adc"><span class="glyphicon glyphicon-plus"></span></a>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,170 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Fontes-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <!--logo na guia -->
+    <link rel="shortcut icon" href="~/img/logo.png">
+    <title>@ViewBag.Title </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/Home/Index"><span class="glyphicon glyphicon-home"></span></a></li>
+                    <li class="dropdown">
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            @Session["Nome"].ToString()  @Session["Sobrenome"].ToString()
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://localhost:49630/Usuarios/AlterarSenha/ @Session["UsuarioId"].ToString()">Alterar Senha</a></li>
+                            <li><a href="http://localhost:49630/Usuarios/Details/ @Session["UsuarioId"].ToString()">Meu Perfil</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="http://localhost:49630/Login/Login"><span class="glyphicon glyphicon-log-out"></span>  Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <!--MENU LATERAL-->
+    <div class="  col-xs-4 col-sm-4 col-md-2 " id="menu-lateral">
+        <div class="row">
+            <div class="side-menu">
+                <ul class="nav nav-pills nav-stacked ">
+                    <li id="dropdown">
+                        <a class="LinkMenu" data-toggle="collapse" href="#dropdown_a">
+                            <span class="glyphicon glyphicon-wrench"></span> Manutenção
+                        </a>
+                        <!-- Dropdown level 1 -->
+                        <div id="dropdown_a" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav">
+                                    <li id="dropdown">
+                                        <a class="LinkMenu" data-toggle="collapse" href="#TM">
+                                            Troca de Molde
+                                        </a>
+                                        <!-- Dropdown level 1 -->
+                                        <div id="TM" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul class="nav">
+                                                    <li><a class="LinkMenu" href="/FormularioTMAtividades/Create/">Novo Formulário</a></li>
+                                                    <li><a class="LinkMenu" href="/FormularioTrocaMoldes/Index/">Formulários</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="dropdown">
+                                        <a class="LinkMenu" data-toggle="collapse" href="#OS">
+                                            Ordem de Serviço
+                                        </a>
+                                        <!-- Dropdown level 1 -->
+                                        <div id="OS" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul class="nav">
+                                                    <li><a class="LinkMenu" href="/FormularioOSAtividades/Create/">Novo Formulário</a></li>
+                                                    <li><a class="LinkMenu" href="/FormularioOrdemServicoes/Index/">Formulários</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="dropdown1">
+                        <a class="LinkMenu" data-toggle="collapse" href="#dropdown_b">
+                            <span class="glyphicon glyphicon-dashboard"></span> Produção
+                        </a>
+                        <!-- Dropdown level 1 -->
+                        <div id="dropdown_b" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav">
+                                    <li><a class="LinkMenu" href="/OrdemProducaoKits/Create">Ordens de Produção Kit</a></li>
+                                    <li><a class="LinkMenu" href="/OrdemProducaoPecas/Create">Ordens de Produção Peça</a></li>
+                                    <!--<li><a class="LinkMenu" href="#">Ficha de Refugo</a></li>-->
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li role="presentation"><a class="LinkMenu" href="#"><span class="glyphicon glyphicon-ok"></span> Expedição</a></li>
+                    <li role="presentation"><a class="LinkMenu" href="#"> <span class="glyphicon glyphicon-search"></span> Consultar Formulários</a></li>
+
+                    <li id="dropdown">
+                        <a class="LinkMenu" data-toggle="collapse" href="#dropdown_d">
+                            <span class="glyphicon glyphicon-stats"></span> Relatórios
+                        </a>
+                        <!-- Dropdown level 1 -->
+                        <div id="dropdown_d" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav">
+                                    <li><a class="LinkMenu" href="/Relatorio/BuscaTM">Troca de Molde</a></li>
+                                    <li><a class="LinkMenu" href="/Relatorio/BuscaOS">Ordens de Serviço</a></li>
+                                    <li><a class="LinkMenu" href="/Relatorio/BuscaOpPeca">Produção de Peça</a></li>
+                                    <li><a class="LinkMenu" href="/Relatorio/BuscaOpKit">Produção de Kit</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="dropdown">
+                        <a class="LinkMenu" data-toggle="collapse" href="#dropdown_c">
+                            <span class="glyphicon glyphicon-edit"></span> Cadastrar
+                        </a>
+                        <!-- Dropdown level 1 -->
+                        <div id="dropdown_c" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul class="nav">
+                                    <li role="presentation"><a class="LinkMenu" href="/Usuarios/Create">Usuários</a></li>
+                                    <li><a class="LinkMenu" href="/Maquinas/Index">Máquinas</a></li>
+                                    <li><a class="LinkMenu" href="/Moldes/Index">Moldes</a></li>
+                                    <li><a class="LinkMenu" href="/Cargos/Index">Cargos</a></li>
+                                    <li id="dropdown">
+                                        <a class="LinkMenu" data-toggle="collapse" href="#AT">
+                                            Atividades
+                                        </a>
+                                        <!-- Dropdown level 1 -->
+                                        <div id="AT" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul class="nav">
+                                                    <li><a class="LinkMenu" href="/AtividadeOS/Index/">Ordem de Serviço</a></li>
+                                                    <li><a class="LinkMenu" href="/AtividadeTMs/Index/">Troca de Molde</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--  <div class="container body-content"> -->
+    <div class=" col-xs-8 col-sm-8 col-md-10" id="conteudo">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - SAMPE - Sistema de Apoio à Manutenção, Produção e Expedição</p>
+        </footer>
+    </div>
+    <!--</div>-->
+</body>
+</html>

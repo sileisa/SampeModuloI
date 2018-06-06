@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Sampe.FormularioOrdemServico>
+
+@{
+    ViewBag.Title = "OsData";
+    Layout = "~/Views/Relatorio/LayoutRelatorio.cshtml";
+}
+
+<h2>Ordem de Servico Entre: @ViewBag.dt1 e @ViewBag.dt2</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Maquina.NomeMaquina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario.NomeUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoManutencao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoraFinal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Intervalo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IntervaloInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IntervaloFim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ObsIntervalo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaterialUsado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantUsado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaterialSobrante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantSobrante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supervisor)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Maquina.NomeMaquina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario.NomeUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoManutencao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoraFinal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Intervalo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IntervaloInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IntervaloFim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ObsIntervalo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaterialUsado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuantUsado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaterialSobrante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuantSobrante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supervisor)
+        </td>
+    </tr>
+}
+
+</table>

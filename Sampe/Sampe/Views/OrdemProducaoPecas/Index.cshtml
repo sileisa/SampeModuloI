@@ -1,0 +1,147 @@
+﻿@model IEnumerable<Sampe.Models.OrdemProducaoPeca>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Expectativa.Produto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MateriaPrima)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MPLote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MPConsumo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProdIncio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProdFim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Maquina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Produto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProdutoCor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MasterLote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fornecedor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TempAgua)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NivelOleo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Galho)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OffSpec)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RefugoKg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnidadesProduzidas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContadorInicial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContadorFinal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Expectativa.Produto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MateriaPrima)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MPLote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MPConsumo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProdIncio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProdFim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Maquina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProdutoCor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MasterLote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fornecedor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TempAgua)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NivelOleo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Galho)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OffSpec)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RefugoKg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnidadesProduzidas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContadorInicial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContadorFinal)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CodigoIdentificador }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CodigoIdentificador }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CodigoIdentificador })
+        </td>
+    </tr>
+}
+
+</table>

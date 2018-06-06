@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "LayoutRelatorio";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <!--Fontes-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <title>LayoutRel</title>
+</head>
+<body>
+    <div>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p class="alert-success">&copy; Relatório gerado em @DateTime.Now</p>
+        </footer>
+    </div>
+</body>
+</html>
+

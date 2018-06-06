@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Sampe.FormularioTrocaMolde>
+
+@{
+    ViewBag.Title = "TmData";
+    Layout = "~/Views/Relatorio/LayoutRelatorio.cshtml";
+}
+
+<h2>Troca de Molde Entre: @ViewBag.dt1 e @ViewBag.dt2</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Maquina.NomeMaquina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario.NomeUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DtRetirada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DtColocar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ColocarInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ColocarFim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RetirarInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RetirarFim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supervisor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Maquina.NomeMaquina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Usuario.NomeUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DtRetirada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DtColocar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ColocarInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ColocarFim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RetirarInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RetirarFim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supervisor)
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "BuscaOpKit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Buscar Ordem de Produção de Kit</h2>
+
+@using (Html.BeginForm())
+{
+
+    <div class="row">
+        <div class="col-lg-6 col-sm-12">
+            <label>Data inicial</label>
+            <input type="date" name="dt1" id="dt2" class="form-control" />
+        </div>
+        <div class="col-lg-6 col-sm-12">
+            <label>Data Final</label>
+            <input type="date" name="dt2" id="dt2" class="form-control" />
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Gerar PDF" class="btn btn-default" />
+        </div>
+    </div>
+}
+

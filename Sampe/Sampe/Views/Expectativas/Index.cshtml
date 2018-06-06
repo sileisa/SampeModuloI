@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Sampe.Models.Expectativa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Produto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CavidadeMolde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PesoPecaAproximado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PesoPecaCompleta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ciclo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProducaoEsperada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProdInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProdFim)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CavidadeMolde)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PesoPecaAproximado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PesoPecaCompleta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ciclo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProducaoEsperada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProdInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProdFim)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ExpectativaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ExpectativaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ExpectativaId })
+        </td>
+    </tr>
+}
+
+</table>

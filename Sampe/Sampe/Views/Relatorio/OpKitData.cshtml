@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Sampe.Models.OrdemProducaoKit>
+
+@{
+    ViewBag.Title = "OpKitData";
+    Layout = "~/Views/Relatorio/LayoutRelatorio.cshtml";
+}
+
+<h2>Ordem de Produção de Kits Entre: @ViewBag.dt1 e @ViewBag.dt2</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente.NomeCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProdIncio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProdFim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalProduzido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NivelamentoBalanca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Obs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OPnoMes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Operdor)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente.NomeCliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProdIncio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProdFim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalProduzido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NivelamentoBalanca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Obs)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OPnoMes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Operdor)
+        </td>
+    </tr>
+}
+
+</table>
